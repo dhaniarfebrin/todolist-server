@@ -12,7 +12,14 @@ const getOneActivity = (id) => {
     return dbPool.execute(query)
 }
 
+const createActivity = ({ title, email }) => {
+    const query = `INSERT INTO activities(title, email) VALUES ('${title}', '${email}')`
+
+    return dbPool.execute(query)
+}
+
 module.exports = {
     getAllActivities,
-    getOneActivity
+    getOneActivity,
+    createActivity
 }

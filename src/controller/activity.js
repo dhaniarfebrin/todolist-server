@@ -41,5 +41,31 @@ module.exports = {
                 serverMessage: err,
             })
         }
+    },
+    createActivity: async (req, res) => {
+        try {
+            const payload = req.body
+
+            if (payload.title && payload.email) {
+                await ActivitiesModel.createActivity(payload)
+
+                res.status(200).json({
+                    status: "Success",
+                    message: "Success",
+                    data: payload
+                })
+            } else {
+                res.status(404).json({
+                    status: "Failed",
+                    message: "The Fields cannot be null",
+                })
+            }
+
+        } catch (err) {
+            res.status(500).json({
+                status: "Failed",
+                serverMessage: err,
+            })
+        }
     }
 }
