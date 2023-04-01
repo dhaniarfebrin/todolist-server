@@ -18,8 +18,22 @@ const createActivity = ({ title, email }) => {
     return dbPool.execute(query)
 }
 
+const updateActivity = ({ title, email }, id) => {
+    const query = `UPDATE activities SET title='${title}', email='${email}', updatedAt=current_timestamp() WHERE activity_id=${id}`
+    
+    return dbPool.execute(query)
+}
+
+const deleteActivity = (id) => {
+    const query = `DELETE FROM activities WHERE activity_id = ${id}`
+
+    return dbPool.execute(query)
+}
+
 module.exports = {
     getAllActivities,
     getOneActivity,
-    createActivity
+    createActivity,
+    updateActivity,
+    deleteActivity
 }
