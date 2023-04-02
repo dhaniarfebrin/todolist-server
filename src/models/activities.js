@@ -13,7 +13,7 @@ const getOneActivity = (id) => {
 }
 
 const createActivity = ({ title, email }) => {
-    const query = `INSERT INTO activities(title, email, createdAt) VALUES ('${title}', '${email}', current_timestamp())`
+    const query = `INSERT INTO activities(title, email, createdAt, updatedAt) VALUES ('${title}', '${email}', current_timestamp(), current_timestamp())`
 
     return dbPool.execute(query)
 }

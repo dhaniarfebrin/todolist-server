@@ -16,7 +16,7 @@ const getOneTodo = (id) => {
 };
 
 const createTodo = ({ activity_group_id, title, is_active }) => {
-    const query = `INSERT INTO todos(activity_group_id, title, priority, is_active, createdAt) VALUES (${activity_group_id}, '${title}', 'very-high', ${is_active}, current_timestamp())`;
+    const query = `INSERT INTO todos(activity_group_id, title, priority, is_active, createdAt, updatedAt) VALUES (${activity_group_id}, '${title}', 'very-high', ${is_active}, current_timestamp(), current_timestamp())`;
     return dbPool.execute(query);
 };
 
